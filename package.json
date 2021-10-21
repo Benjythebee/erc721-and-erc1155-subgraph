@@ -1,0 +1,16 @@
+{
+  "name": "erc721-and-erc1155-subgraph",
+  "license": "UNLICENSED",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "deploy": "graph deploy --product hosted-service --node https://api.thegraph.com/deploy/ benjythebee/erc721-and-erc1155-subgraph",
+    "create-local": "graph create --node http://localhost:8020/ benjythebee/erc721-and-erc1155-subgraph",
+    "remove-local": "graph remove --node http://localhost:8020/ benjythebee/erc721-and-erc1155-subgraph",
+    "deploy-local": "graph deploy --product hosted-service --node http://localhost:8020/ --ipfs http://localhost:5001 benjythebee/erc721-and-erc1155-subgraph"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "^0.22.1",
+    "@graphprotocol/graph-ts": "^0.22.1"
+  }
+}

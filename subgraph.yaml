@@ -1,0 +1,58 @@
+specVersion: 0.0.2
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: EIP721AndEIP1155
+    network: mainnet
+    source:
+      abi: EIP721AndEIP1155
+      startBlock: 5500000
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Approval
+        - ApprovalForAll
+        - URI
+        - Transfer
+        - Transfer1
+        - Transfer2
+        - Transfer3
+        - Transfer4
+        - Transfer5
+        - Transfer6
+        - Transfer7
+        - Transfer8
+        - TransferSingle
+        - TransferBatch
+      abis:
+        - name: EIP721AndEIP1155
+          file: ./abis/all.json
+      eventHandlers:
+        - event: URI(string,indexed uint256)
+          handler: handleURI
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransfer
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer1
+        - event: Transfer(address,address,uint256)
+          handler: handleTransfer2
+        - event: Transfer(indexed address,address,uint256)
+          handler: handleTransfer3
+        - event: Transfer(address,indexed address,uint256)
+          handler: handleTransfer4
+        - event: Transfer(address,address,indexed uint256)
+          handler: handleTransfer5
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer6
+        - event: Transfer(indexed address,address,indexed uint256)
+          handler: handleTransfer7
+        - event: Transfer(address,indexed address,indexed uint256)
+          handler: handleTransfer8
+        - event: TransferSingle(indexed address,indexed address,indexed address,uint256,uint256)
+          handler: handleTransferSingle
+        - event: TransferBatch(indexed address,indexed address,indexed address,uint256[],uint256[])
+          handler: handleTransferBatch
+      file: ./src/mapping.ts

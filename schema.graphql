@@ -1,0 +1,31 @@
+
+type Token @entity {
+  id: ID!
+  contract: TokenContract!
+  tokenID: BigInt!
+  owners: [OwnerTokenLookup!]! @derivedFrom(field: "token")
+  mintTime: BigInt!
+  tokenURI: String!
+}
+
+type OwnerTokenLookup @entity {
+  id: ID! #User:ADdress_tokenId
+  owner: Owner!
+  token: Token!
+  contract: TokenContract!
+  quantity: BigInt!
+}
+
+type TokenContract @entity {
+  id: ID!
+  name: String,
+  symbol: String,
+  isLikelyERC1155: Boolean!
+  tokens: [Token!]! @derivedFrom(field: "contract")
+}
+
+type Owner @entity {
+  id: ID!
+  tokens: [OwnerTokenLookup!]! @derivedFrom(field: "owner")
+  numTokens: BigInt!
+}
