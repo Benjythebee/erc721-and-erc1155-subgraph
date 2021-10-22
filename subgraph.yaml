@@ -33,24 +33,10 @@ dataSources:
       eventHandlers:
         - event: URI(string,indexed uint256)
           handler: handleURI
-        - event: Transfer(indexed address,indexed address,indexed uint256)
+        - event: Transfer(address,address,uint256)
           handler: handleTransfer
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleTransfer1
-        - event: Transfer(address,address,uint256)
-          handler: handleTransfer2
-        - event: Transfer(indexed address,address,uint256)
-          handler: handleTransfer3
-        - event: Transfer(address,indexed address,uint256)
-          handler: handleTransfer4
-        - event: Transfer(address,address,indexed uint256)
-          handler: handleTransfer5
-        - event: Transfer(indexed address,indexed address,uint256)
-          handler: handleTransfer6
-        - event: Transfer(indexed address,address,indexed uint256)
-          handler: handleTransfer7
-        - event: Transfer(address,indexed address,indexed uint256)
-          handler: handleTransfer8
         - event: TransferSingle(indexed address,indexed address,indexed address,uint256,uint256)
           handler: handleTransferSingle
         - event: TransferBatch(indexed address,indexed address,indexed address,uint256[],uint256[])
